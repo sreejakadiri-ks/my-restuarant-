@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saffron Garden — Restaurant</title>
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height: 1.4; color:#222; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Variables */
+    :root{
+      --accent: #c25a2c;
+      --muted: #666;
+      --bg: #fbfbfb;
+      --card: #fff;
+      --maxw: 1100px;
+    }
+
+    /* Layout helpers */
+    .container { width: 92%; max-width: var(--maxw); margin: 0 auto; }
+
+    /* Header */
+    .site-header { background: var(--card); border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .logo { font-size:1.25rem; font-weight:700; color:var(--accent); }
+    .main-nav a { margin: 0 10px; font-weight:600; color:#333; }
+    .book-btn { background:var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #fff9f5 100%); padding: 40px 0; }
+    .hero-inner { display:flex; gap: 30px; align-items:center; }
+    .hero-text h2 { font-size:2rem; margin-bottom:8px; color:#222; }
+    .hero-text p { color:var(--muted); margin-bottom:12px; max-width:520px; }
+    .btn { display:inline-block; background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; font-weight:600; }
+
+    /* Placeholder image box */
+    .placeholder { width:320px; height:200px; background:linear-gradient(135deg,#ffe6d9,#fff1ee); display:flex; align-items:center; justify-content:center; color:#aa6b4d; border-radius:10px; font-weight:700; }
+
+    /* Menu */
+    .section-title { font-size:1.5rem; margin: 18px 0; color:#222; }
+    .menu-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .menu-card { background:var(--card); padding:16px; border-radius:10px; box-shadow: 0 6px 16px rgba(36,36,36,0.04); }
+    .menu-card h3{ margin-bottom:6px; }
+    .desc{ color:var(--muted); font-size:0.95rem; margin-bottom:10px; }
+    .price{ font-weight:700; color:var(--accent); }
+
+    /* About & Contact */
+    .about, .contact { padding: 18px 0 40px; }
+    .contact-grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
+    .contact-form label { display:block; margin-bottom:10px; font-size:0.95rem; color:#333; }
+    .contact-form input, .contact-form textarea { width:100%; padding:10px; border-radius:8px; border:1px solid #e6e6e6; margin-top:6px; }
+    .contact-form .btn { margin-top:8px; }
+
+    /* Footer */
+    .site-footer { border-top:1px solid #eee; padding:18px 0; background:var(--bg); }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; }
+
+    /* Responsive */
+    @media (max-width: 800px){
+      .hero-inner { flex-direction:column-reverse; text-align:center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .main-nav { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Saffron Garden</h1>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="book-btn">Book a Table</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>Delicious food • Cozy vibes</h2>
+          <p>Farm-fresh ingredients, handcrafted dishes, and warm hospitality.</p>
+          <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <div class="placeholder">Restaurant Image</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="menu container">
+      <h2 class="section-title">Our Menu</h2>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <h3>Margherita Pizza</h3>
+          <p class="desc">Classic tomato, mozzarella, basil.</p>
+          <p class="price">₹299</p>
+        </article>
+        <article class="menu-card">
+          <h3>Grilled Salmon</h3>
+          <p class="desc">Lemon butter, seasonal veggies.</p>
+          <p class="price">₹599</p>
+        </article>
+        <article class="menu-card">
+          <h3>Paneer Tikka</h3>
+          <p class="desc">Smoky, spiced, served with chutney.</p>
+          <p class="price">₹349</p>
+        </article>
+        <article class="menu-card">
+          <h3>Chocolate Brownie</h3>
+          <p class="desc">Warm brownie with ice cream.</p>
+          <p class="price">₹199</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about container">
+      <h2 class="section-title">About Us</h2>
+      <p>At Saffron Garden we bring together bold flavors and sustainable sourcing to craft memorable meals for every occasion.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div>
+          <h3>Visit Us</h3>
+          <p>123 Food Lane, Cityname</p>
+          <p>Mon–Sun • 10:00 AM – 11:00 PM</p>
+        </div>
+        <form class="contact-form" action="#" method="post" onsubmit="alert('Form demo — implement backend to handle submissions'); return false;">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="3" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Saffron Garden — All rights reserved</p>
+      <div class="social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
